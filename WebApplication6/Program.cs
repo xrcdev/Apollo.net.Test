@@ -26,10 +26,11 @@ namespace WebApplication6
 
              .ConfigureAppConfiguration((hostingContext, builder) =>
              {
-                  builder
-                 .AddApollo(builder.Build().GetSection("apollo"))
-                 .AddDefault();
-                 //.AddNamespace("T1DB");//Apollo中NameSpace的名称
+                 builder
+                .AddApollo(builder.Build().GetSection("apollo"))
+                .AddDefault()
+                 .AddNamespace("ab1"); //Apollo中NameSpace的名称
+                 //.AddNamespace("ab2");//Apollo中NameSpace的名称
              })
                 //.ConfigureAppConfiguration((hostBuilderContext, configurationBuilder) =>
                 //{

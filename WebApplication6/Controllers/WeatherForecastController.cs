@@ -27,7 +27,7 @@ namespace WebApplication6.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get(string key)
+        public IEnumerable<WeatherForecast> Get(string key, string ty = "str")
         {
             var rng = new Random();
 
@@ -41,6 +41,11 @@ namespace WebApplication6.Controllers
             if (!string.IsNullOrWhiteSpace(key))
             {
                 var val = configuration1.GetValue<string>(key);
+                
+                if (ty != "str")
+                {
+                    var val2 = configuration1.GetSection(key).Get<int>();
+                }
                 rst.Clear();
                 if (!string.IsNullOrWhiteSpace(val))
                 {
